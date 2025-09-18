@@ -51,8 +51,11 @@ inflation %>%
   ungroup() %>% 
   ggplot() +
   geom_line(aes(date, value, color = name)) +
+  theme_minimal() +
   theme(legend.position = c(.1, .9)) +
-  NULL
+  labs(color = "") + 
+  ylab("subjective inflation in %-points") +
+  xlab("year")
 ```
 
 A code chunk is for longer code/output:
