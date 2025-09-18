@@ -44,10 +44,10 @@ The survey has run quarterly since `r min(inflation$year)`.
 ```{r}
 inflation %>% 
   group_by(date) %>% 
-  summarise(across(c(perception, expect1),
+  summarise(across(c(perception, expect1, expect5),
                    ~ mean(., na.rm = TRUE)),
             .groups = "drop") %>% 
-  pivot_longer(c(expectation, perception)) %>% 
+  pivot_longer(c(expect1, perception)) %>% 
   ungroup() %>% 
   ggplot() +
   geom_line(aes(date, value, color = name)) +
