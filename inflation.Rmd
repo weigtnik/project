@@ -10,6 +10,7 @@ repro:
     - tidyverse
     - lubridate
     - aaronpeikert/repro@fc7e884
+    - eatGADS
   scripts:
     - R/prepare_inflation.R
   data:
