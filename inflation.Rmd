@@ -1,6 +1,6 @@
 ---
 title: "Inflation Data"
-author: "Aaron Peikert"
+author: "Nikolas Weigt"
 date: "`r Sys.Date()`"
 output:
   tufte::tufte_html: default
@@ -44,7 +44,7 @@ The survey has run quarterly since `r min(inflation$year)`.
 ```{r}
 inflation %>% 
   group_by(date) %>% 
-  summarise(across(c(perception, expectation),
+  summarise(across(c(perception, expect1),
                    ~ mean(., na.rm = TRUE)),
             .groups = "drop") %>% 
   pivot_longer(c(expectation, perception)) %>% 
