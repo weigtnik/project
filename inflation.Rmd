@@ -2,7 +2,8 @@
 title: "Inflation Data"
 author: "Aaron Peikert"
 date: "`r Sys.Date()`"
-output: pdf_document
+output:
+  tufte::tufte_html: default
 repro:
   packages:
     - here
@@ -37,7 +38,7 @@ I quote:
 # note that they must be empty and the names must correspond
 ```
 
-For this dataset the Bank of England asked `r prettyNum(nrow(inflation), big.mark = ".", decimal.mark = ",")` people for their opinion on the perceived and expected inflation.
+For this dataset the *Bank of England* asked `r prettyNum(nrow(inflation), big.mark = ".", decimal.mark = ",")` people for their opinion on the perceived and expected inflation.
 The survey has run quarterly since `r min(inflation$year)`.
 
 ```{r}
@@ -50,6 +51,7 @@ inflation %>%
   ungroup() %>% 
   ggplot() +
   geom_line(aes(date, value, color = name)) +
+  theme(legend.position = c(.1, .9)) +
   NULL
 ```
 
@@ -62,3 +64,12 @@ with(mtcars, plot(hp, mpg))
 Inline code is for single numbers/short text:
 
 We have `32` cars.
++++
+
+
+
+
+
+
+
+
